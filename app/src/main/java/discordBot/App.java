@@ -20,13 +20,13 @@ public class App {
             discordBot.addEventListeners(new BotInterface() {
                 @Override
                 public void onReady(@NotNull ReadyEvent event) {
-                    System.out.println("botInterface ready");
+                    event.getJDA().getPresence().setActivity(Activity.watching("over you"));
+                    event.getJDA().getPresence().setStatus(OnlineStatus.ONLINE);
+                    System.out.println(BotInterface.class.getSimpleName() + " ready");
+                    System.out.println("login successful");
                 }
             });
-            discordBot.setStatus(OnlineStatus.ONLINE);
-            discordBot.setActivity(Activity.watching("over you"));
             discordBot.build();
-            System.out.println("login successful");
         }
         catch (LoginException loginException) {
             System.out.println("login failed");

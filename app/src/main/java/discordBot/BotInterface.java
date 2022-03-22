@@ -4,6 +4,7 @@ import net.dv8tion.jda.api.entities.MessageChannel;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.Executors;
@@ -23,8 +24,15 @@ public class BotInterface extends ListenerAdapter {
         @Override
         public void run() {
             for (User user : users.values()) {
-                if (user.wantsSomething()) {
-                    messageChannel.sendMessage("MENE TÖIHIN").queue();
+                if (user.wantsSpam()) {
+                    WeatherAPI weatherAPI = new WeatherAPI();
+                    weatherAPI.setLOCATION("London");
+                    try {
+                        weatherAPI.weatherForecastToday();
+                        messageChannel.sendMessage(weatherAPI.getName() + " is " + weatherAPI.getText()).queue();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         }

@@ -30,7 +30,7 @@ public class User {
     }
 
 
-    public boolean wantsSomething() {
+    public boolean wantsSpam() {
         return wantsSpam;
     }
 
