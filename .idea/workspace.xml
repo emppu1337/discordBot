@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f01626e7-0131-45d6-a2f3-8fc82c870a74" name="Changes" comment="Initial commit with gradle build">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/discordBot/User.java" afterDir="false" />
+    <list default="true" id="f01626e7-0131-45d6-a2f3-8fc82c870a74" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/app/src/test/java/discordBot/WeatherAPITest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/discordBot/BotInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/discordBot/BotInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/test/java/discordBot/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/discordBot/AppTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/discordBot/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/discordBot/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/java/discordBot/BotInterfaceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/discordBot/BotInterfaceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,8 +25,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="JUnit4 Test Class" />
+        <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -52,6 +55,8 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../banking" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -64,7 +69,7 @@
       <recent name="discordBot" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.BotInterfaceTest">
+  <component name="RunManager" selected="Gradle.TestTest">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="discordBot.App" />
       <module name="discordBot.app.main" />
@@ -78,7 +83,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AppTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="TestTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -91,7 +96,7 @@
           <list>
             <option value=":app:test" />
             <option value="--tests" />
-            <option value="&quot;discordBot.AppTest&quot;" />
+            <option value="&quot;discordBot.TestTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -101,7 +106,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="BotInterfaceTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="WeatherAPITest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -114,7 +119,7 @@
           <list>
             <option value=":app:test" />
             <option value="--tests" />
-            <option value="&quot;discordBot.BotInterfaceTest&quot;" />
+            <option value="&quot;discordBot.WeatherAPITest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -124,7 +129,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="CredentialsTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="WeatherAPITest.mustParseDataCorrectly" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -137,7 +142,30 @@
           <list>
             <option value=":app:test" />
             <option value="--tests" />
-            <option value="&quot;discordBot.CredentialsTest&quot;" />
+            <option value="&quot;discordBot.WeatherAPITest.mustParseDataCorrectly&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="WeatherAPITest.whenRequestIsCorrect_thenResponseOk" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--scan" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":app:test" />
+            <option value="--tests" />
+            <option value="&quot;discordBot.WeatherAPITest.whenRequestIsCorrect_thenResponseOk&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -149,10 +177,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.BotInterfaceTest" />
+        <item itemvalue="Gradle.TestTest" />
+        <item itemvalue="Gradle.WeatherAPITest" />
+        <item itemvalue="Gradle.WeatherAPITest.whenRequestIsCorrect_thenResponseOk" />
+        <item itemvalue="Gradle.WeatherAPITest.mustParseDataCorrectly" />
         <item itemvalue="Application.App" />
-        <item itemvalue="Gradle.AppTest" />
-        <item itemvalue="Gradle.CredentialsTest" />
       </list>
     </recent_temporary>
   </component>
@@ -179,7 +208,28 @@
       <option name="project" value="LOCAL" />
       <updated>1647431136248</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Updated gitIgnore&#10;Initiated BotInterface with test">
+      <created>1647446978013</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1647446978013</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Increased functionality">
+      <created>1647607910055</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1647607910055</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Increased functionality with crude weather report">
+      <created>1647941149558</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1647941149558</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -195,9 +245,45 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit with gradle build" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial commit with gradle build" />
+    <MESSAGE value="Updated gitIgnore&#10;Initiated BotInterface with test" />
+    <MESSAGE value="Increased functionality" />
+    <MESSAGE value="Increased functionality with crude weather report" />
+    <option name="LAST_COMMIT_MESSAGE" value="Increased functionality with crude weather report" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/discordBot/BotInterface.java</url>
+          <line>49</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/test/java/discordBot/WeatherAPITest.java</url>
+          <line>14</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/discordBot/App.java</url>
+          <line>13</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/app/src/test/java/discordBot/WeatherAPITest.java</url>
+          <line>56</line>
+          <properties class="discordBot.WeatherAPITest" method="mustParseDataCorrectly">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/discordBot$BotInterfaceTest.ic" NAME="BotInterfaceTest Coverage Results" MODIFIED="1647449318884" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/discordBot$CredentialsTest.ic" NAME="CredentialsTest Coverage Results" MODIFIED="1647427407849" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
