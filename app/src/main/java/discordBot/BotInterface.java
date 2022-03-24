@@ -23,13 +23,18 @@ public class BotInterface extends ListenerAdapter {
     Runnable responseRunnable = new Runnable() {
         @Override
         public void run() {
+            if (messageChannel == null) return;
             for (User user : users.values()) {
-                if (user.wantsSpam()) {
-                    WeatherAPI weatherAPI = new WeatherAPI();
-                    weatherAPI.setLOCATION("London");
+
+                if (user.isWantsSpam() == true) {
+                    messageChannel.sendMessage(user.getHelloMessage()).queue();
+                }
+
+                if (user.isWantsWeather() == true) {
+
+                    user.setWantsWeather(false);
                     try {
-                        weatherAPI.weatherForecastToday();
-                        messageChannel.sendMessage(weatherAPI.getName() + " is " + weatherAPI.getText()).queue();
+                        messageChannel.sendMessage(user.getWeatherMessage()).queue();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -49,7 +54,7 @@ public class BotInterface extends ListenerAdapter {
             user = new User(userName);                  // create new user and give it name from userName
             users.put(userName, user);                  // put user into Map "users" with key userName
         }
-        user.add(event.getMessage().getContentRaw());
+        user.processMessage(event.getMessage().getContentRaw());
     } // TODO: 3/17/2022 could userId be used instead of name?
 }
 /*
