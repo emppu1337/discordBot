@@ -23,6 +23,7 @@ public class App {
                     event.getJDA().getPresence().setActivity(Activity.watching("over you"));
                     event.getJDA().getPresence().setStatus(OnlineStatus.ONLINE);
                     System.out.println(BotInterface.class.getSimpleName() + " ready");
+                    System.out.println(MessageRepository.class.getSimpleName() + " ready");
                     System.out.println("login successful");
                 }
             });

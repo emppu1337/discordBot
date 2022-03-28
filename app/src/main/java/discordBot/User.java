@@ -9,17 +9,24 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class User {
-    private String name;
+
+    private String userName;
+    private String discordId;
+    private int databaseId;
+    private int msgCount = 1;
 
     private boolean wantsSpam = false;
     private boolean wantsWeather = false;
 
-    public User(String name) {
-        this.name = name;
+    public User(String discordId) {
+        this.discordId = discordId;
     }
 
     public void processMessage(String message) {
-        System.out.println(name + ": " + message);
+        String ANSI_GREEN = "\u001B[32m";
+        String ANSI_RESET = "\u001B[0m";
+        String printOut = String.format(userName + " wrote:%n" + message);
+        System.out.println(ANSI_GREEN + printOut + ANSI_RESET);
         if (message == null) return;
         if (wantsSpam == false) {
             wantsWeather = isCommandOf("weather", message);
@@ -50,24 +57,8 @@ public class User {
         return message.endsWith(" " + command); //IntelliJ simplified if-else
     }
 
-    public boolean isWantsSpam() {
-        return wantsSpam;
-    }
-
-    public void setWantsSpam(boolean wantsSpam) {
-        this.wantsSpam = wantsSpam;
-    }
-
-    public boolean isWantsWeather() {
-        return wantsWeather;
-    }
-
-    public void setWantsWeather(boolean wantsWeather) {
-        this.wantsWeather = wantsWeather;
-    }
-
     public CharSequence getHelloMessage() {
-        return "Hello " + name;
+        return "Hello " + userName;
     }
 
     public CharSequence getWeatherMessage() throws IOException {
@@ -89,6 +80,55 @@ public class User {
 
         weatherData = testMapper.readValue(Objects.requireNonNull(response.body()).string(), WeatherData.class);
 
-        return name + " wants to know weather! Weather in " + weatherData.getName() + " is " + weatherData.getText();
+        return userName + " wants to know weather! Weather in " + weatherData.getName() + " is " + weatherData.getText();
+    }
+
+    public boolean isWantsSpam() {
+        return wantsSpam;
+    }
+
+    public void setWantsSpam(boolean wantsSpam) {
+        this.wantsSpam = wantsSpam;
+    }
+
+    public boolean isWantsWeather() {
+        return wantsWeather;
+    }
+
+    public void setWantsWeather(boolean wantsWeather) {
+        this.wantsWeather = wantsWeather;
+    }
+
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public int getDatabaseId() {
+        return databaseId;
+    }
+
+    public void setDatabaseId(int databaseId) {
+        this.databaseId = databaseId;
+    }
+
+    public int getMsgCount() {
+        return msgCount;
+    }
+
+    public void setMsgCount(int msgCount) {
+        this.msgCount = msgCount;
+    }
+
+    public String getDiscordId() {
+        return discordId;
+    }
+
+    public void setDiscordId(String discordId) {
+        this.discordId = discordId;
     }
 }

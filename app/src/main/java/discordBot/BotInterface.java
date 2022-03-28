@@ -13,6 +13,7 @@ import java.util.concurrent.TimeUnit;
 
 public class BotInterface extends ListenerAdapter {
     private MessageChannel messageChannel = null;
+    MessageRepository messageRepository = new MessageRepository();
     private Map<String, User> users = new HashMap<>();
     private ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
 
@@ -45,17 +46,36 @@ public class BotInterface extends ListenerAdapter {
 
     @Override
     public void onMessageReceived(MessageReceivedEvent event) {
-        messageChannel = event.getChannel();            // save the channel
-        if (event.getAuthor().isBot()) return;          // ignore bots
-        String userName = event.getAuthor().getName();  // save username
+        messageChannel = event.getChannel();
+        // ignore bots
+        if (event.getAuthor().isBot()) return;
+        // create database table if this is the first user to send message
+        if (users.isEmpty()) {
+            MessageRepository.createTable();
+        }
 
-        User user = users.get(userName);
-        if (user == null) {                             // check that user does not exist in map
-            user = new User(userName);                  // create new user and give it name from userName
-            users.put(userName, user);                  // put user into Map "users" with key userName
+        String discordId = event.getAuthor().getId();
+        String userName = event.getAuthor().getName();
+
+        // get user from map "users"
+        User user = users.get(discordId);
+
+        // check if user does not exist in map "users" - create new user with discord id if not and give it username from above
+        if (user == null) {
+            user = new User(discordId);
+            user.setUserName(userName);
+            messageRepository.create(user);
+            MessageRepository.setMessageRepositorySize(users.size());
+
+            // put user into map "users" with key discordId
+            users.put(discordId, user);
+            System.out.println("Size of map users is: " + users.size());
+        } else {
+            messageRepository.update(user);
+            messageRepository.printById(discordId);
         }
         user.processMessage(event.getMessage().getContentRaw());
-    } // TODO: 3/17/2022 could userId be used instead of name?
+    }
 }
 /*
 Bot runs on a scheduled executor, that executes a runnable method at fixed interval.
