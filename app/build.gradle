@@ -13,6 +13,8 @@ dependencies {
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.2'
     implementation 'com.fasterxml.jackson.core:jackson-core:2.13.2'
     implementation 'com.squareup.okhttp3:okhttp:5.0.0-alpha.6'
+    testImplementation 'com.h2database:h2:2.1.210'
+    implementation 'com.h2database:h2:2.1.210'
 }
 
 application {
