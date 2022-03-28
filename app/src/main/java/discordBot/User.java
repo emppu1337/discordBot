@@ -27,6 +27,7 @@ public class User {
         String ANSI_RESET = "\u001B[0m";
         String printOut = String.format(userName + " wrote:%n" + message);
         System.out.println(ANSI_GREEN + printOut + ANSI_RESET);
+
         if (message == null) return;
         if (wantsSpam == false) {
             wantsWeather = isCommandOf("weather", message);

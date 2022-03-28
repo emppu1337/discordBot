@@ -16,15 +16,18 @@ public class App {
     public static void main(String[] args) {
 
         try {
+            String ANSI_GREEN = "\u001B[32m";
+            String ANSI_RESET = "\u001B[0m";
+
             JDABuilder discordBot = JDABuilder.createDefault(Credentials.getBotToken());
             discordBot.addEventListeners(new BotInterface() {
                 @Override
                 public void onReady(@NotNull ReadyEvent event) {
                     event.getJDA().getPresence().setActivity(Activity.watching("over you"));
                     event.getJDA().getPresence().setStatus(OnlineStatus.ONLINE);
-                    System.out.println(BotInterface.class.getSimpleName() + " ready");
+                    System.out.println(ANSI_GREEN + BotInterface.class.getSimpleName() + " ready");
                     System.out.println(MessageRepository.class.getSimpleName() + " ready");
-                    System.out.println("login successful");
+                    System.out.println("login successful" + ANSI_RESET);
                 }
             });
             discordBot.build();

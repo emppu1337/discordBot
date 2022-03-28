@@ -75,8 +75,8 @@ public class MessageRepository {
             try {
                 assert connection != null;
                 connection.close();
-                System.out.print("User " + user.getUserName() + " with Discord ID " + user.getDiscordId() + " was saved in database with database id " + user.getDatabaseId());
-                System.out.println(" Message count of database id " + user.getDatabaseId() + " is currently " + user.getMsgCount());
+                System.out.println("User " + user.getUserName() + " with Discord ID " + user.getDiscordId() + " was saved in database with database id " + user.getDatabaseId());
+                System.out.print("Message count of database id " + user.getDatabaseId() + " is currently " + user.getMsgCount());
             } catch (SQLException e) {
                 e.printStackTrace();
             }
