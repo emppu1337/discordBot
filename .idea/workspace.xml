@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f01626e7-0131-45d6-a2f3-8fc82c870a74" name="Changes" comment="made it better">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/discordBot/MessageRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/test/java/discordBot/MessageRepositoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/discordBot/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/discordBot/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/discordBot/BotInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/discordBot/BotInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/discordBot/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/discordBot/User.java" afterDir="false" />
-    </list>
+    <list default="true" id="f01626e7-0131-45d6-a2f3-8fc82c870a74" name="Changes" comment="made it better" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
