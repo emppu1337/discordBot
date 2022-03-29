@@ -31,9 +31,11 @@ public class BotInterface extends ListenerAdapter {
                     messageChannel.sendMessage(user.getHelloMessage()).queue();
                 }
 
-                if (user.isWantsWeather() == true) {
+                if (user.isWantsWeather() == true && user.isGivingLocation() == false) {
+                    messageChannel.sendMessage(user.getWeatherLocationRequest()).queue();
+                }
 
-                    user.setWantsWeather(false);
+                if (user.isGivingLocation() == true && user.getLocation() != null) {
                     try {
                         messageChannel.sendMessage(user.getWeatherMessage()).queue();
                     } catch (IOException e) {
@@ -65,11 +67,11 @@ public class BotInterface extends ListenerAdapter {
             user = new User(discordId);
             user.setUserName(userName);
             messageRepository.create(user);
-            MessageRepository.setMessageRepositorySize(users.size());
 
             // put user into map "users" with key discordId
             users.put(discordId, user);
-            System.out.println("Size of map users is: " + users.size());
+            messageRepository.printAll(users.size());
+
         } else {
             messageRepository.update(user);
             messageRepository.printById(discordId);
@@ -87,7 +89,7 @@ For example:
 - if user.wantsWeather = true method "run" will ask user for input for city, set "wantsWeather" to false and "isGivingALocation" to true.
 - if user.isGivingALocation = true bot will read users message, format it to comply with url input for weather API, send user weather information and set statuses back to default.
 
-This makes it possible to add features to bot in a modular fashion and make bot appear as if it is interacting with the user in a chatbot-kind of way.
+This makes it possible to add features to bot in a modular fashion and make bot appear as if it is interacting with the user in a chat-bot-kind of way.
 
 To keep track of users and their statuses, all users are saved in a database (a hashmap in this case). This is done when user first writes into the chat.
 */

@@ -6,7 +6,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class MessageRepository {
-    private static int messageRepositorySize;
     private static final String CONNECTION_STRING_FILE = "jdbc:h2:./msgtable_db";
 
     public static boolean createTable() {
@@ -76,7 +75,6 @@ public class MessageRepository {
                 assert connection != null;
                 connection.close();
                 System.out.println("User " + user.getUserName() + " with Discord ID " + user.getDiscordId() + " was saved in database with database id " + user.getDatabaseId());
-                System.out.print("Message count of database id " + user.getDatabaseId() + " is currently " + user.getMsgCount());
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -137,7 +135,7 @@ public class MessageRepository {
         }
     }
 
-    public void printAll() {
+    public void printAll(int messageRepositorySize) {
         Connection connection = null;
         try {
             connection = DriverManager.getConnection(CONNECTION_STRING_FILE);
@@ -147,7 +145,10 @@ public class MessageRepository {
                 statement.setInt(1, i);
                 var resultSet = statement.executeQuery();
                 if (resultSet.next()) {
-                    System.out.println("User id " + i + " is called " + resultSet.getString(1) + " with messagecount " + resultSet.getInt(2));
+                    System.out.println("---");
+                    System.out.println("User id: " + i);
+                    System.out.println("Username: " + resultSet.getString(1));
+                    System.out.println("Messagecount: " + resultSet.getInt(2));
                 }
             }
         } catch (SQLException e) {
@@ -160,9 +161,5 @@ public class MessageRepository {
                 e.printStackTrace();
             }
         }
-    }
-
-    public static void setMessageRepositorySize(int messageRepositorySize) {
-        MessageRepository.messageRepositorySize = messageRepositorySize;
     }
 }

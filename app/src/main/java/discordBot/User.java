@@ -1,12 +1,6 @@
 package discordBot;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
-
 import java.io.IOException;
-import java.util.Objects;
 
 public class User {
 
@@ -14,9 +8,11 @@ public class User {
     private String discordId;
     private int databaseId;
     private int msgCount = 1;
+    private String location;
 
     private boolean wantsSpam = false;
     private boolean wantsWeather = false;
+    private boolean givingLocation = false;
 
     public User(String discordId) {
         this.discordId = discordId;
@@ -35,6 +31,10 @@ public class User {
         }
         if (wantsSpam == true) {
             wantsSpam = !isCommandOf("stop", message);  // command to stop the bot
+        }
+        if (givingLocation == true && location == null) {
+            wantsWeather = false;
+            location = message.toLowerCase().replace(" ", "%20");
         }
     }
 
@@ -62,26 +62,28 @@ public class User {
         return "Hello " + userName;
     }
 
+    public CharSequence getWeatherLocationRequest() {
+        this.wantsWeather = false;
+        this.givingLocation = true;
+        return "Hello <@" + discordId + ">! Please write down location for the weather report.";
+    }
+
     public CharSequence getWeatherMessage() throws IOException {
         WeatherAPI weather = new WeatherAPI();
-        weather.setLOCATION("los angeles");
+        weather.weatherForecastToday(location);
+        if (weather.getName() != null) {
+            this.givingLocation = false;
+            this.location = null;
+            return "Weather report for " + userName + ": " + "Weather in " + weather.getName() + ", " + weather.getRegion() + " is " + weather.getText() + " with temperature at " + weather.getTemp_c() + " degrees Celsius.";
+        } else {
+            this.location = null;
+            this.givingLocation = true;
+            return "I'm sorry <@" + discordId + ">, I did not understand. Please try again.";
+        }
+    }
 
-        OkHttpClient client = new OkHttpClient();
-        String API_URL = String.format("https://weatherapi-com.p.rapidapi.com/current.json?q=%s", weather.getLOCATION());
-
-        Request request = new Request.Builder()
-                .url(API_URL)
-                .addHeader("x-rapidapi-host", "weatherapi-com.p.rapidapi.com")
-                .addHeader("x-rapidapi-key", Credentials.getWeatherAPIKey())
-                .build();
-
-        Response response = client.newCall(request).execute();
-        WeatherData weatherData;
-        ObjectMapper testMapper = new ObjectMapper();
-
-        weatherData = testMapper.readValue(Objects.requireNonNull(response.body()).string(), WeatherData.class);
-
-        return userName + " wants to know weather! Weather in " + weatherData.getName() + " is " + weatherData.getText();
+    public CharSequence getNotUnderstoodMessage() {
+        return "I'm sorry <@" + discordId + ">, I did not understand. Please try again.";
     }
 
     public boolean isWantsSpam() {
@@ -100,6 +102,13 @@ public class User {
         this.wantsWeather = wantsWeather;
     }
 
+    public boolean isGivingLocation() {
+        return givingLocation;
+    }
+
+    public void setGivingLocation(boolean givingLocation) {
+        this.givingLocation = givingLocation;
+    }
 
     public String getUserName() {
         return userName;
@@ -131,5 +140,13 @@ public class User {
 
     public void setDiscordId(String discordId) {
         this.discordId = discordId;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
     }
 }

@@ -10,15 +10,17 @@ import java.util.Objects;
 
 public class WeatherAPI {
 
-    private String LOCATION;
+    private int status;
+
     private String name;
     private String region;
     private Double temp_c;
     private String text;
 
-    public void weatherForecastToday() throws IOException {
+    public void weatherForecastToday(String location) throws IOException {
+
         OkHttpClient client = new OkHttpClient();
-        String API_URL = String.format("https://weatherapi-com.p.rapidapi.com/current.json?q=%s", LOCATION);
+        String API_URL = String.format("https://weatherapi-com.p.rapidapi.com/current.json?q=%s", location);
 
         Request request = new Request.Builder()
                 .url(API_URL)
@@ -27,22 +29,20 @@ public class WeatherAPI {
                 .build();
         Response response = client.newCall(request).execute();
 
+        status = response.code();
+
         WeatherData weatherData;
         ObjectMapper weatherDataMapper = new ObjectMapper();
         weatherData = weatherDataMapper.readValue(Objects.requireNonNull(response.body()).string(), WeatherData.class);
 
-        name = weatherData.getName();
-        region = weatherData.getRegion();
-        temp_c = weatherData.getTemp_c();
-        text = weatherData.getText();
+        this.name = weatherData.getName();
+        this.region = weatherData.getRegion();
+        this.temp_c = weatherData.getTemp_c();
+        this.text = weatherData.getText();
     }
 
-    public String getLOCATION() {
-        return LOCATION.toLowerCase().replace(" ", "%20");
-    }
-
-    public void setLOCATION(String LOCATION) {
-        this.LOCATION = LOCATION;
+    public int getStatus() {
+        return status;
     }
 
     public String getName() {
