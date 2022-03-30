@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f01626e7-0131-45d6-a2f3-8fc82c870a74" name="Changes" comment="Added this. to satisfy Per">
+    <list default="true" id="f01626e7-0131-45d6-a2f3-8fc82c870a74" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/discordBot/BotInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/discordBot/BotInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/discordBot/MessageRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/discordBot/MessageRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/discordBot/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/discordBot/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/discordBot/WeatherAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/discordBot/WeatherAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/test/java/discordBot/WeatherAPITest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/discordBot/WeatherAPITest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +70,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -87,7 +83,7 @@
       <recent name="discordBot" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.MessageRepositoryTest (1)">
+  <component name="RunManager" selected="Application.App">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="discordBot.App" />
       <module name="discordBot.app.main" />
@@ -268,7 +264,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648472375912</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Lot of refactoring &amp; added exception handling to situations where response body equals null">
+      <created>1648565500079</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1648565500079</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -302,7 +305,8 @@
     <MESSAGE value="made it better" />
     <MESSAGE value="-" />
     <MESSAGE value="Tiny visual changes to console view" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tiny visual changes to console view" />
+    <MESSAGE value="Lot of refactoring &amp; added exception handling to situations where response body equals null" />
+    <option name="LAST_COMMIT_MESSAGE" value="Lot of refactoring &amp; added exception handling to situations where response body equals null" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>

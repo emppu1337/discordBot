@@ -46,7 +46,6 @@ public class User {
         message = message.toLowerCase();
 
         if (command.equalsIgnoreCase(message)) {
-            System.out.println("Setting response to true");
             return true;
         }
         if (message.startsWith(command + " ")) {
