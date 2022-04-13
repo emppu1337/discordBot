@@ -6,6 +6,7 @@ Discord bot with database and API query functionalities
 -	Reads user input for command to run weather report query and for location of weather report. Reacts to word "weather" in discord.
 -	Handles exceptions that result from invalid location input
 -	Saves user data (username, discord id, amount of sent messages) in SQL database
+	
 Program is built with Java using the following dependencies / libraries
 -	JDA library for Discord functionalities
 -	Jackson for parsing JSON-data that results from API-query into POJO
